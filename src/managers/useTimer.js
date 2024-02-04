@@ -2,52 +2,54 @@ import React from "react";
 import { useState, useEffect, useRef } from 'react';
 
 const useTimer = () => {
-    // let interval =  null //store setInterval
-    // let duringInterval =  false
-
     const [startTime, setStartTime] = useState(null);
     const [time, setTime] = useState("00:00.00");
     const [recordTimes, setRecordTimes] = useState([]);
     const [intervalId, setIntervalId] = useState(null);
     const [duringInterval, setDuringInterval] = useState(false);
+    const [A, setA] = useState(null);
     
     const reset = () => {
+        console.log("reset")
         stop();
         setRecordTimes([]);
-        setStartTime(new Date());
+        setStartTime(null);
         setTime("00:00.00");
     }
 
     const startTimerInterval = () => {
         console.log("startTimerInterval");
-        // interval = setInterval(() => {  //gpt added update callback
-        //   let tempTime = getElapsedTime();
-        //   setTime(formatTime(tempTime))
-        // }, 10);  
 
+        //get current time and save to start time
+        const tempStartTime = Date.now();
+        console.log(`Date.now() ${tempStartTime}`);
+        setStartTime(tempStartTime)
+        console.log(`startTime: ${startTime}`)
+
+        setA("A");
+        console.log(`A:${A}`);
+
+        //timer run
         const newIntervalId = setInterval(() => {
             const tempTime = getElapsedTime();
-            setTime(formatTime(tempTime))
-        },10)
+            setTime(formatTime(tempTime));
+        },40)
         setIntervalId(newIntervalId);
+
         setDuringInterval(true);
     }
 
     const startAndUpdate = () => {
-        reset();
+        // reset();
         startTimerInterval();
     }
 
     const stop = () => {
         console.log("stop");
         if (duringInterval) {
-        //   clearInterval(interval);
-        //   duringInterval = false;
-
           clearInterval(intervalId);
           setIntervalId(null);
           setDuringInterval(true);
-
           console.log("stopTimerInterval");
           console.log(`${time}`)
         }

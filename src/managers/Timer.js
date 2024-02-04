@@ -11,23 +11,16 @@ export const timer = {
         timer.stop();
         recordTimes = [];
         timer.startTime = new Date();
-        //   timerInHtml.innerHTML = `<p>00:00:00.00</p>`;
-        timer.timerString = "00:00.00" //switch to output to var for RN to get rather than set html
-        // recordTimesInHtml2.innerHTML = `<p></p>`;
+        timer.timerString = "00:00.00" 
     },
   
     //start interval
     startTimerInterval: () => {
       console.log("startTimerInterval");
-      interval = setInterval((updateCallBack) => {  //gpt added update callback
+      interval = setInterval(() => { 
         let tempTime = timer.getElapsedTime();
-        // timerInHtml.innerHTML = `<p>${timer.formatTime(tempTime)}</p>`;
-        timer.timerString = `${timer.formatTime(tempTime)}`; //output to var for RN
+        timer.timerString = `${timer.formatTime(tempTime)}`;
       }, 10);
-
-      //gpt code: Call the callback to update timerString
-      updateCallBack(newTimerString);
-
       timer.duringInterval = true;
     },
   

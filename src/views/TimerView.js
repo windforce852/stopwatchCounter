@@ -10,19 +10,19 @@ export default function TimerView() {
     const timer = useTimer();
 
     const stopTimeCount = () => {
-        console.log('stop time count')
+        // console.log('stop time count')
         // return () => timer.stop()
         timer.stop()
     }
 
     const startTimeCount = () => {
-        console.log('start time count')
+        // console.log('start time count')
         // return () => timer.startAndUpdate()
         timer.startAndUpdate()
     }
 
     const resetTimeCount = () => {
-        console.log('reset time count')
+        // console.log('reset time count')
         // return () => timer.reset()
         timer.reset()
     }
