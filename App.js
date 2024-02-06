@@ -2,10 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import TimerView from './src/views/TimerView';
+import StopWatchView from './src/views/StopWatchView';
 import CounterView from './src/views/CounterVIew';
-import TestView2 from './TestView2';
-import TestView3 from './TestView3';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,7 +12,7 @@ export default function App() {
     <View style={styles.container}>
       
       {/* <StatusBar style="auto" /> */}
-      <TimerView />
+      <StopWatchView />
       <CounterView />
     </View>
   );

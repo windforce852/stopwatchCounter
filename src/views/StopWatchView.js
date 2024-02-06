@@ -6,7 +6,7 @@ import { useState } from "react";
 import useTimer from '../managers/useTimer';
 import useStopWatch from "../managers/useStopWatch";
 
-export default function TimerView() {
+export default function StopWatchView() {
 
     const timer = useTimer();
     const { minutes, seconds, Ms, start, stop, reset } = useStopWatch();
