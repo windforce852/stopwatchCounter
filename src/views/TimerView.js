@@ -1,35 +1,35 @@
 import React from "react";
 import { Button, Pressable, StyleSheet, Text, View } from "react-native";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { timer } from '../managers/Timer';
+// import { timer } from '../managers/Timer';
 import { useState } from "react";
 import useTimer from '../managers/useTimer';
+import useStopWatch from "../managers/useStopWatch";
 
 export default function TimerView() {
 
     const timer = useTimer();
-
+    const { minutes, seconds, Ms, start, stop, reset } = useStopWatch();
+    
     const stopTimeCount = () => {
-        // console.log('stop time count')
-        // return () => timer.stop()
-        timer.stop()
+        // timer.stop()
+        stop()
     }
 
     const startTimeCount = () => {
-        // console.log('start time count')
-        // return () => timer.startAndUpdate()
-        timer.startAndUpdate()
+        // timer.startAndUpdate()
+        start()
     }
 
     const resetTimeCount = () => {
-        // console.log('reset time count')
-        // return () => timer.reset()
-        timer.reset()
+        // timer.reset()
+        reset()
     }
 
     return(
     <View style={styles.timerView}>
-        <Text style={styles.time}>{timer.time}</Text>
+        {/* <Text style={styles.time}>{timer.time}</Text> */}
+        <Text style={styles.time}>{`${minutes}:${seconds}.${Ms}`}</Text>
         <View style={styles.buttonsssView}>
             <View style={styles.buttonView}>
                 <Pressable onPressOut={resetTimeCount}>

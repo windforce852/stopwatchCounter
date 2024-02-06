@@ -53,9 +53,6 @@ export const timer = {
       let tempTime = timer.getElapsedTime();
       let formatedTempTime = `${timer.formatTime(tempTime)}`;
       recordTimes.push(formatedTempTime);  
-    //   const newNode = document.createElement("li"); hide html related first
-    //   newNode.innerHTML = `${formatedTempTime}`;
-    //   recordTimesInHtml2.insertBefore(newNode, recordTimesInHtml2.firstChild);
     },
   
     //turn millseconds to display time
@@ -63,7 +60,6 @@ export const timer = {
       const unitMs = elapsedTime % 100;
       const unitSecond = Math.floor((elapsedTime / 1000) % 60);
       const unitMins = Math.floor(elapsedTime / 1000 / 60);
-    //   const unitHours = Math.floor(elapsedTime / 1000 / 60 / 60);
   
       return `${timer.addNumZeroPadding(unitMins)}:${timer.addNumZeroPadding(unitSecond)}.${timer.addNumZeroPadding(unitMs)}`;
     },
@@ -73,21 +69,3 @@ export const timer = {
     },
   };
   
-//   const startButton = document
-//     .getElementById("start")
-//     .addEventListener("click", timer.startAndUpdate);
-  
-//   const recordButton = document
-//     .getElementById("record")
-//     .addEventListener("click", timer.recordTime);
-  
-//   const stopButton = document
-//     .getElementById("stop")
-//     .addEventListener("click", timer.stop);
-  
-//   const resetButton = document
-//     .getElementById("reset")
-//     .addEventListener("click", timer.reset);
-  
-//   const timerInHtml = document.getElementById("timer");
-//   const recordTimesInHtml2 = document.getElementById("recordTimeList");
