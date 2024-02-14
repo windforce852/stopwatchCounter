@@ -77,8 +77,8 @@ const useTimer = () => {
         return `${addNumZeroPadding(unitMins)}:${addNumZeroPadding(unitSecond)}.${addNumZeroPadding(unitMs)}`;
       }
 
-      const addNumZeroPadding = (formatedTime) => {
-        return (formatedTime >= 10 ? "" : "0") + formatedTime;
+      const addPaddingDigit = (time) => {
+        return (time >= 10 ? "" : "0") + time;
       }
 
     return { time, startAndUpdate, stop, reset }

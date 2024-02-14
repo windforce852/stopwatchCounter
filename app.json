@@ -4,7 +4,7 @@
     "slug": "StopwatchCounter",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/KB-1.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -19,12 +19,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "foregroundImage": "./assets/kb_yellow.png",
+        "backgroundColor": "#000000"
+      },
+      "package": "com.enzokwan.StopwatchCounter"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "16ad48f3-a186-447a-a505-ed7935bb2dee"
+      }
     }
   }
 }

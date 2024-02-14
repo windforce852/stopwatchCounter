@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { Button, Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const CounterView = () => {
 
     const [countNum, setCountNum] = useState(0)
+    const [upButtonOnPress, setUpButtonOnPress] = useState(false)
+    const [downButtonOnPress, setDownButtonOnPress] = useState(false)
+    const [resetButtonOnPress, setResetButtonOnPress] = useState(false)
 
     const countIncrease = () => {
         //setCountNum(countNum + 1) //will cause infinite rerender
@@ -27,20 +30,32 @@ const CounterView = () => {
             </View>
 
             <View style={styles.counterViewButtonViewUp}>
-                <Pressable onPress={countIncrease()} >
-                    <AntDesign name="upcircleo" size={80} color="white"/>
+                <Pressable 
+                    onPress={countIncrease()} 
+                    onPressIn={() => {setUpButtonOnPress(prev => !prev)}}
+                    onPressOut={() => {setUpButtonOnPress(prev => !prev)}}
+                >
+                    <AntDesign name={upButtonOnPress ? "upcircle" : "upcircleo" } size={80} color="white"/>
                 </Pressable>
             </View>
 
             <View style={styles.counterViewButtonViewDown}>
-                <Pressable onPress={countDecrease()} >
-                    <AntDesign name="downcircleo" size={80} color="white"/>
+                <Pressable 
+                    onPress={countDecrease()} 
+                    onPressIn={() => {setDownButtonOnPress(prev => !prev)}}
+                    onPressOut={() => {setDownButtonOnPress(prev => !prev)}}
+                >
+                    <AntDesign name={downButtonOnPress ? "downcircle" : "downcircleo"} size={80} color="white"/>
                 </Pressable>
             </View>
 
             <View style={styles.counterViewButtonViewReset}>
-                <Pressable onPressOut={resetCount()}>
-                    <MaterialCommunityIcons name="restart" size={40} color="white" />
+                <Pressable 
+                    onPress={resetCount()}
+                    onPressIn={() => {setResetButtonOnPress(prev => !prev)}}
+                    onPressOut={() => {setResetButtonOnPress(prev => !prev)}}
+                >
+                    <MaterialCommunityIcons name="restart" size={resetButtonOnPress ? 44 : 40} color="white" padding={8}/>
                 </Pressable>
             </View>
         </View>
@@ -52,6 +67,7 @@ const styles = StyleSheet.create({
         flex: 2,
         flexDirection: 'column',
         backgroundColor: '#d98d00',
+        // backgroundColor: 'green',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -62,7 +78,7 @@ const styles = StyleSheet.create({
         // backgroundColor: 'green'
     },
     counterViewButtonViewDown: {
-        flex: 1.8,
+        flex: 1.4,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -70,7 +86,7 @@ const styles = StyleSheet.create({
         flex: 0.8,
         alignItems: 'center',
         justifyContent: 'center',
-        paddingBottom: 20,
+        paddingBottom: 50,
         // backgroundColor: 'green'
     },
     countView: {

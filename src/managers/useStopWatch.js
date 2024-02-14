@@ -40,13 +40,17 @@ const useStopWatch = () => {
         return () => clearInterval(interval);
     }, [isActive, startTime, elapsedTime]);
 
+    const addPaddingDigit = (time) => {
+        return (time >= 10 ? "" : "0") + time;
+    }
+
     // Calculate minutes and seconds from elapsedTime
-    const minutes = Math.floor(elapsedTime / 60000);
-    const seconds = Math.floor((elapsedTime % 60000) / 1000);
-    const Ms = elapsedTime % 100;
+    const minutes = addPaddingDigit(Math.floor(elapsedTime / 60000));
+    const seconds = addPaddingDigit(Math.floor((elapsedTime % 60000) / 1000));
+    const Ms = addPaddingDigit(elapsedTime % 100);
 
 
-    return { minutes, seconds, Ms, start, stop, reset }
+    return { minutes, seconds, Ms, start, stop, reset, addPaddingDigit }
 }
 
 export default useStopWatch;
