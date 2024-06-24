@@ -116,6 +116,7 @@ const styles = StyleSheet.create({
         fontSize: 50,
         color: '#fff',
         paddingTop: 80,
+        fontFamily: 'B612Mono',
     },
     buttonsssView: {
         flex: 1,

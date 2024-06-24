@@ -15,7 +15,9 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "icon": "./assets/kb-ios-icon.png",
+      "bundleIdentifier": "com.enzokwan.StopwatchCounter"
     },
     "android": {
       "adaptiveIcon": {
@@ -31,6 +33,9 @@
       "eas": {
         "projectId": "16ad48f3-a186-447a-a505-ed7935bb2dee"
       }
-    }
+    },
+    "plugins": [
+      "expo-font"
+    ]
   }
 }
